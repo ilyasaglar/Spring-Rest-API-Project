@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../bootstrap.min.css">
+</head>
+<body>
+
+	<div class="card">
+		<h5 class="card-header info-color white-text text-center py-4">
+			<strong>Ögrenci Kayıt Sistemi</strong>
+		</h5>
+	</div>
+
+
+	<div class="container" align="center">
+
+		<div class="col-md-10 col-md-pull-10" align="center">
+			<hr>
+			<div class="float-left">
+			<!--<button type="button" th:href="@{/add}" class="btn btn-success">ADD STUDENT</button> -->
+				<a th:href="@{/student/add}" class="btn btn-success">Add Student</a>
+				<hr>
+			</div>
+			
+			<table class="table table-bordered table-striped">
+
+				<thead class="thead-dark">
+					<tr>
+						<th>TC Kimlik No</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Borç (TL)</th>
+						<th>Durumu</th>
+						<th>Update</th>
+						<th>Delete</th>
+
+					</tr>
+				</thead>
+
+				<tbody>
+
+					<tr th:each="stdnt : ${stdntList}">
+						<td th:text="${stdnt.tcKimlikNo}"></td>
+						<td th:text="${stdnt.firstName}"></td>
+						<td th:text="${stdnt.lastName}"></td>
+						<td align="center" th:text="${stdnt.borcTutari}"></td>
+						<td align="center" th:text="${stdnt.borcDurumu}"></td>
+						<td align="center"> <a th:href="@{/student/update(studentId = ${stdnt.id})}"  class="btn btn-info btn-sm">Update</a></td>
+						<td align="center"> <a th:href="@{/student/delete(studentId = ${stdnt.id})}"  class="btn btn-danger btn-sm">Delete</a></td>
+					</tr>
+
+
+				</tbody>
+			</table>
+
+
+
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

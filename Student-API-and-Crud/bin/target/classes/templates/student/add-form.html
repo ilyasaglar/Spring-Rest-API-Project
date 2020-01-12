@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.htymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../bootstrap.min.css">
+<link rel="stylesheet" href="../add.css">
+</head>
+<body>
+
+	<div class="container">
+		<section id="cover" class="min-vh-100">
+			<div id="cover-caption">
+				<div class="container">
+					<div class="row text-white">
+						<div
+							class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+							<h3 class="display-6 py-2 text-truncate">Ögrenci Bilgilerini
+								Giriniz</h3>
+							<div class="px-2">
+								<form th:action="@{/student/save}" th:object="${student}"
+									method="POST" class="justify-content-center">
+
+
+
+									<input type="hidden" th:field="*{id}">
+
+
+
+									<div class="form-group">
+										<input type="number" th:field="*{tcKimlikNo}"
+											class="form-control" placeholder="Tc Kimlik No" required data-bv-notempty-message="Bu alanı doldurun " >
+									</div>
+
+									<div class="form-group">
+										<input type="text" th:field="*{firstName}" class="form-control"
+											placeholder="Adı"  required data-bv-notempty-message="Bu alanı doldurun " >
+									</div>
+
+									<div class="form-group">
+										<input type="text" th:field="*{lastName}" class="form-control"
+											placeholder="Soyadı"  required data-bv-notempty-message="Bu alanı doldurun ">
+									</div>
+
+									<div class="form-group">
+										<label for="miktar1"><b>Borç Miktarı</b></label> <input
+											type="text" th:field="*{borcTutari}" class="form-control"
+											value="*{borcTutari}" id="miktar1" disabled="disabled">
+									</div>
+
+									<div class="form-group">
+										<label for="durum1"><b>Durumu</b></label> <input type="text"
+											th:field="*{borcDurumu}" class="form-control"
+											value="*{borcDurumu}" id="durum1" disabled="disabled">
+									</div>
+
+									<div class="float-left">
+										<button type="submit" class="btn btn-primary btn-lg">Kaydet</button>
+									</div>
+									<div class="float-right">
+										<a th:href="@{/student/list}" class="btn btn-success btn-lg">Geri</a>
+									</div>
+									
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+</body>
+</html>
