@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../bootstrap.min.css">
+<title>Mazlum Bank</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Mazlum Bank</h1>
+		<hr>
+		<h1>Banka Harc Ödeme Sistemi</h1>
+
+		<table class="table table-bordered table-striped">
+
+			<thead class="thead-dark">
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Borç Tutarı</th>
+					<th>Borç Durumu</th>
+					<th>Ödeme</th>
+				</tr>
+
+			</thead>
+			<tbody>
+
+
+				<tr th:each="list : ${borcluList}">
+
+					<td th:text="${list.firstName}" />
+					<td th:text="${list.lastName}" />
+					<td th:text="${list.borcTutari}" />
+					<td th:text="${list.borcDurumu}">
+					<td><a class="btn btn-info btn-sm"
+						th:href="@{/banka/odeme(musteriId=${list.id})}">Ödeme Yap</a></td>
+
+				</tr>
+
+
+
+			</tbody>
+
+
+
+
+		</table>
+	</div>
+</body>
+</body>
+</html>
